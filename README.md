@@ -50,11 +50,11 @@ The table lists each account holder's id (claveCuentahabiente), name (nombre), a
 
 ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/16a0398d-c86b-4e4b-923c-69de9117031a)
 
-To add a new account holder, click on the "**NUEVO CUENTAHABIENTE**" ("new account holder") button on the top-right of the table. Fill out the fields and then click on "**AGREGAR**" ("add"). The id has to be a number greater than 0 and unique. The name can be alphanumeric. The age has to be a 0 or greater number.
+To add a new account holder, click on the "**NUEVO CUENTAHABIENTE**" ("new account holder") button on the top-right corner of the table. Fill out the fields and then click on "**AGREGAR**" ("add"). The id has to be a number greater than 0 and unique. The name can be alphanumeric. The age has to be a 0 or greater number.
 
 ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/60ee0c0f-7661-4870-b988-782e2acb2131)
 
-If the account holder is created succefully, you'll get a confirmation message. If something went wrong with its creation, you'll get an error message stating the reason (id has to be unique, age can't be negative, etc.).
+If the account holder is created succefully, you'll get a confirmation message. If something went wrong with its creation, you'll get an error message stating the reason (for example: the id has to be unique, age can't be negative, etc.).
 
 ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/14b98a81-85ea-4e92-baa6-06f95865740b)  
 Message: "new guy was added successfully"
@@ -63,14 +63,14 @@ On the table's "**Acciones**" ("actions") column, you can modify or delete an ac
 
 ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/ec56f95d-e4c1-47a5-b84e-66c682469aff)
 
-Clicking the trash button ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/d00c06e0-8f53-4b27-b27b-f40477068434) will open up a deletion confirmation window. Click on the "**OK**" button to delete the account holder, or "**CANCELAR**" to cancel.
+Clicking the trash button ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/d00c06e0-8f53-4b27-b27b-f40477068434) will open up a deletion confirmation window. Click on the "**OK**" button to delete the account holder, or "**CANCELAR**" to cancel. Because all accounts need to be associated to at least one account holder, you can't delete an account holder that is the only association that an account has.
 
 ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/7912f500-ae78-4201-8705-45e36581fa3d)  
 Message: "Are you sure you wish to delete this account holder?"
 
 #### Asociar cuenta (Associate account)
 
-This subsection allows you to associate an account to an account holder. In the "**Clave de cuentahabiente**" ("account holder id") field you input the id of an account holder, and in the "**Clave de cuenta a asociar**" ("account to associate id") field you input the id of the account that you want to associate to the previously inputted account holder. Press the "**ASOCIAR**" ("associate") button to perform the association. If the association was performed successfuly, you'll get a confirmation message. If the association couldn't be made, you'll get an error message explaining the reason (for example, the account or account holder you inputted doesn't exist, or they are already associated with each other).
+This subsection allows you to associate an account to an account holder. These associations are stored in the "**cuentahabientecuentas**" table of the MySQL database. In the "**Clave de cuentahabiente**" ("account holder id") field you input the id of an account holder, and in the "**Clave de cuenta a asociar**" ("account to associate id") field you input the id of the account that you want to associate to the previously inputted account holder. Press the "**ASOCIAR**" ("associate") button to perform the association. If the association was performed successfuly, you'll get a confirmation message. If the association couldn't be made, you'll get an error message explaining the reason (for example: the account or account holder you inputted doesn't exist, or they are already associated with each other).
 
 ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/aac323fb-6f6d-43fb-a92f-af6ab660166a)
 
@@ -79,11 +79,66 @@ Message: "The account holder new guy was associated successfully to account 17"
 
 #### Desasociar cuenta (Disassociate account)
 
+This subsection allows you to disassociate an account from an account holder. In the "**Clave de cuentahabiente**" ("account holder id") field you input the id of an account holder, and in the "**Clave de cuenta a desasociar**" ("account to disassociate id") field you input the id of the account that you want to disassociate from the previously inputted account holder. Press the "**DESASOCIAR**" ("disassociate") button to perform the disassociation. If the disassociation was performed successfuly, you'll get a confirmation message. If the disassociation couldn't be made, you'll get an error message explaining the reason (for example: the account or account holder you inputted doesn't exist, or they are already disassociated).
 
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/ef373aa1-e09b-4c73-9573-d47b07382a3e)
+
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/5c36ad4d-c18a-4000-8892-3f99d4a5b080)  
+Message: "The account holder John Doe was disassociated successfully from account 25"
 
 ### Cuentas (Accounts)
+Here you can see a table of all the registered accounts, which are stored in the "**cuenta**" table of the MySQL database. Above the table there are four subsections that you can open: [**Consultar saldos**](#consultar-saldos-check-balance) (check balance), [**Depositar**](#depositar-deposit) (deposit), [**Retirar**](#retirar-withdraw) (withdraw) and [**Transferir**](#transferir-transfer) (transfer).
 
-cuentasfasfa
+The table lists each account's id (claveCuenta), balance (saldo) and associated account holders (cuentahabientes). Different accounts can share the same balance and associated account holders, but not the same id. You can sort the accounts by id or by balance. You can also choose the amount of accounts to list in the table per page.
+
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/b8f1fd44-b4c7-4483-b66e-9babe4be24ca)
+
+To add a new account, click on the "**NUEVA CUENTA**" ("new account") button on the top-right corner of the table. Fill out the fields and then click on "**AGREGAR**" ("add"). The id has to be a number greater than 0 and unique. The balance has to be at least 0 and it can be either a whole number or a decimal number; there is no limit to how many decimal places the balance you input can have, but the back-end will always round it up or down to 2 decimal places. The new account has to have at least one account holder associated to it, so you need to input at least 1 valid account holder id in the "**cuentahabientes**" field; if you want to associate more than one account holder, you can input multiple valid account holder ids by separating them with commas.
+
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/62cfb3f2-60e4-415e-9368-2b4b9cf9d461)
+
+If the account is created succefully, you'll get a confirmation message. If something went wrong with its creation, you'll get an error message stating the reason (for example: the id has to be unique, balance can't be negative, etc.).
+
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/e97e5f1a-9f22-4ea0-a3bb-1e64800e01c1)  
+Message: "The account of id 4 was added successfully"
+
+On the table's "**Acciones**" ("actions") column, you can delete an account. Clicking the trash button ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/d00c06e0-8f53-4b27-b27b-f40477068434) will open up a deletion confirmation window. Click on the "**OK**" button to delete the account, or "**CANCELAR**" to cancel. You can only delete accounts that have a balance of $0.
+
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/0a7af1fb-3886-451e-917f-eede6ebe5b91)  
+Message: "Are you sure you wish to delete this account?"
+
+#### Consultar saldos (Check balance)
+
+This subsection allows you to check the balance of a specific account. While this subsection is redundant because you can already check the balances of all the registered accounts in the accounts table, my professor asked for it as part of the assignment anyway for the sake of practice. The table of accounts disappearing when you enter this subsection is intentional, as it was also a request from my professor. In the "**Clave de cuenta**" ("account id") field, you select from a drop-down list the id of an account; once selected, that account's balance will automatically appear in the "**Saldo**" ("balance") field.
+
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/3a4f3d7c-9fe3-4c5f-89a0-d15559d7d9fb)
+
+#### Depositar (Deposit)
+
+This subsection allows you to deposit money into an account. In the "**Clave de cuenta en la que se depositará**" ("account id in which to deposit") field you input the id of an account, and in the "**Depósito**" ("deposit") field you input the amount of money you wish to deposit to that account. Press the "**DEPOSITAR**" ("deposit") button to perform the deposit. If the deposit was performed successfuly, you'll get a confirmation message. If the deposit couldn't be made, you'll get an error message explaining the reason (for example: the deposit can't be negative or 0).
+
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/565d079b-1a5a-4f4c-9e03-95831cf87ab1)
+
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/3991cfd7-8809-4748-88a4-d9b0f3dc7047)  
+Message: "Deposit successful"
+
+#### Retirar (Withdraw)
+
+This subsection allows you to withdraw money from an account. In the "**Clave de cuenta de la que se retirará**" ("account id from which to withdraw") field you input the id of an account, and in the "**Retiro**" ("withdrawal") field you input the amount of money you wish to withdraw from that account. Press the "**RETIRAR**" ("withdraw") button to perform the withdrawal. If the withdrawal was performed successfuly, you'll get a confirmation message. If the withdrawal couldn't be made, you'll get an error message explaining the reason (for example: the withdrawal can't be negative, 0 or greater than the account's present balance).
+
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/84b9c10e-9561-4345-93b7-6243667ed8a0)
+
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/87da57b3-baff-48ec-9fb4-839a88b0ab1c)  
+Message: "Withdrawal successful"
+
+#### Transferir (Transfer)
+
+This subsection allows you to transfer money from an account into another. In the "**Clave de cuenta fuente**" ("source account id") field you input the id of the account from which money will be transferred, in the "**Transferencia**" ("transfer") field you input the amount of money you wish to transfer, and in the "**Clave de cuenta destino**" ("destination account id") field you input the id of the account into which money will be transferred. Press the "**TRANSFERIR**" ("transfer") button to perform the transfer. If the transfer was performed successfuly, you'll get a confirmation message. If the transfer couldn't be made, you'll get an error message explaining the reason (for example: the transfer can't be negative, 0 or greater than the source account's present balance).
+
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/960545bf-b2cf-4ff5-9074-f3326635b88a)
+
+![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/790eb39d-d17a-43a5-92f2-822702bd8ace)  
+Message: "Transfer successful"
 
 ## Credits for the images, all royalty-free
 - ***Home.jpg*** - by [Toa Heftiba](https://unsplash.com/@heftiba) on [Unsplash](https://unsplash.com/photos/LtnX7AhHenU?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink).
