@@ -11,8 +11,10 @@
       <v-col sm="6">
         <v-text-field
           v-model="user.password"
-          type="string"
+          :append-icon="visible ? 'mdi-eye' : 'mdi-eye-off'"
+          :type="visible ? 'string' : 'password'"
           label="Password"
+          @click:append="visible = !visible"
         ></v-text-field>
       </v-col>
     </v-row>
@@ -39,6 +41,7 @@ export default {
     error: false,
     exito: false,
     msg: "",
+    visible: false,
     user: {
       username: "",
       password: "",
