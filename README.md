@@ -8,22 +8,33 @@ To run the front-end, execute `npm run serve`.
 ## How to use
 
 ### Navigation bar
-By clicking on the ≡ button next to "Banco" in the top-left corner of the UI, you can open up the **navigation bar**.  
+By clicking on the ≡ button next to "Banco" in the top-left corner of the UI, you can open up the **navigation bar**.
+
 ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/01758400-0b43-4c4d-88f0-befd9a9524b0)
 
-The navigation bar allows you to navigate to the 4 main sections of the UI and it can be used in any of those sections.  
+The navigation bar allows you to navigate to the 4 main sections of the UI and it can be used in any of those sections. However, you're required to log in to the system to be able to enter the [**Cuentahabientes**](#cuentahabientes) and [**Cuentas**](#cuentas) sections; if you attempt to enter these sections without logging in first, you'll be automatically redirected to the [**Login**](#login) section.
+
 ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/b5185064-a31a-46b3-8e99-06f1b81f8998)
 
 ### Home
-The initial page is the **Home** page. This page simply explains what each route of the back-end API does, as well as what is required in the body of each POST, PUT and PATCH request.  
+The initial page is the **Home** page. This page simply explains what each route of the back-end API does, as well as what is required in the body of each POST, PUT and PATCH request.
+
 ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/89e9bddc-e0d3-46f3-958b-b5a6ea4a32b2)
 
 ### Login
-Here you can log in with a username and password
+Here you can log in with a username and password. Users are stored in the "**users**" table of the MySQL database. Logging in is required to be able to
+
 ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/3fd98870-e509-4037-b63a-6eaa7b47a617)
 
+### Cuentahabientes
 
-### Credits for the images, all royalty-free:
+cuenthabiernne
+
+### Cuentas
+
+cuentasfasfa
+
+## Credits for the images, all royalty-free:
 - ***Home.jpg*** - by [Toa Heftiba](https://unsplash.com/@heftiba) on [Unsplash](https://unsplash.com/photos/LtnX7AhHenU?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink).
 - ***Cuentas.jpg*** - by [Andre Taissin](https://unsplash.com/@andretaissin) on [Unsplash](https://unsplash.com/photos/5OUMf1Mr5pU?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink).
 - ***Cuentahabientes.jpg*** - by [Austin Distel](https://unsplash.com/@austindistel) on [Unsplash](https://unsplash.com/photos/744oGeqpxPQ?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink).
