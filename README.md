@@ -147,8 +147,8 @@ Message: "Transfer successful"
 - ***User.png*** - by [Pete Linforth](https://pixabay.com/users/thedigitalartist-202249/) from [Pixabay](https://pixabay.com/illustrations/icon-user-male-avatar-business-5359553/).
 
 ## In retrospect
-Now that I have much more experience with JavaScript and UI design, re-visiting this old assignment allowed me to see how much my coding habits and skills have changed; if I were to remake this UI, there certainly is plenty of stuff I would do differently. For example, 
-
-Some other changes I'd do are:
+Now that I have much more experience with JavaScript and UI design, re-visiting this old assignment allowed me to see how much my coding habits and skills have changed; if I were to remake this UI, there certainly is plenty of stuff I would do differently. A few examples:
 - In the **Login** section, instead of having a "**LOGIN**" button and a "**LOGOUT**" button, I can have just one button that serves both purposes: have it be a **LOGIN** button when a valid token is not stored, and have it be a **LOGOUT** button when a valid token is stored.
-- 
+- When trying to register a new account holder or a new account, disable the "**AGREGAR**" button as long as the required fields aren't filled in correctly. Also highlight in red the required fields that aren't filled in correctly and show with small texts below them what the problem is. I'd also do something similar when modifying an already registered account holder.
+- Make the balance always appear as a number with two decimal places even when it's a whole number (for example, make 106 appear as 106.00).
+- Make a separate config-like file with constants that can be used throughout the entire program. For example, instead of hard-coding the url of the back-end into every single HTTP request, save the base url and the different routes into constants in a config-like file that can be imported and used in any places I need to use them.
