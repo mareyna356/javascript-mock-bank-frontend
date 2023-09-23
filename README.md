@@ -63,7 +63,7 @@ On the table's "**Acciones**" ("actions") column, you can modify or delete an ac
 
 ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/ec56f95d-e4c1-47a5-b84e-66c682469aff)
 
-Clicking the trash button ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/d00c06e0-8f53-4b27-b27b-f40477068434) will open up a deletion confirmation window. Click on the "**OK**" button to delete the account holder, or "**CANCELAR**" to cancel. Because all accounts need to be associated to at least one account holder, you can't delete an account holder that is the only association that an account has.
+Clicking the trash button ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/d00c06e0-8f53-4b27-b27b-f40477068434) will open up a deletion confirmation window. Click on the "**OK**" button to delete the account holder, or "**CANCELAR**" to cancel. You can only delete account holders who aren't associated to any accounts.
 
 ![image](https://github.com/mareyna356/javascript-mock-bank-frontend/assets/116867368/7912f500-ae78-4201-8705-45e36581fa3d)  
 Message: "Are you sure you wish to delete this account holder?"
